@@ -31,9 +31,17 @@ class ClientThread(threading.Thread):
         connectionSocket.send(final_response)
         connectionSocket.close()
 
+print("Server Setup")
 
-HOST = '127.0.0.1'
-PORT = 6789
+print("Please, Enter Server Ip:")
+HOST = input()
+if(HOST==""):
+    HOST = "127.0.0.1"
+print("Please, Enter Port")
+PORT = input()
+if(PORT==""):
+    PORT = 6789
+    
 serverSocket = socket(AF_INET, SOCK_STREAM) #Prepare a sever socket
 serverSocket.bind((HOST, PORT))
 serverSocket.listen(1)
